@@ -1,23 +1,34 @@
 package com.mycompany.payrollsystemmodification;
 
-import java.time.LocalDate;
-
 public class EmployeeTest {
    public static void main(String[] args) {
-      Date birth = new Date(7, 24, 1949);
-      Date hire = new Date(3, 12, 1988);
-      Employee employee = new Employee("Bob", "Blue", birth, hire);
+      Date birth1 = new Date(10, 24, 2002);
+      Date hire1 = new Date(4, 30, 2023);
+      Employee employee1 = new Employee("Naweed", "Quorishi", birth1, hire1);
 
-      Employee[] employees = {employee}; // create an array to hold the employees
+      Date birth2 = new Date(5, 12, 1998);
+      Date hire2 = new Date(3, 5, 2020);
+      Employee employee2 = new Employee("John", "Doe", birth2, hire2);
 
-      int currentMonth = LocalDate.now().getMonthValue(); // get the current month
+      Date birth3 = new Date(11, 30, 2000);
+      Date hire3 = new Date(7, 12, 2021);
+      Employee employee3 = new Employee("Jane", "Smith", birth3, hire3);
 
+      Date birth4 = new Date(7, 1, 1999);
+      Date hire4 = new Date(2, 15, 2022);
+      Employee employee4 = new Employee("Sarah", "Johnson", birth4, hire4);
+
+      Date birth5 = new Date(12, 31, 1997);
+      Date hire5 = new Date(9, 1, 2020);
+      Employee employee5 = new Employee("Michael", "Brown", birth5, hire5);
+
+      Employee[] employees = {employee1, employee2, employee3, employee4, employee5}; // create an array to hold the employees
+
+      System.out.println("Employees with earnings $600 or less:");
       for (Employee e : employees) {
-         Date eBirthDate = e.getBirthDate();
-         if (eBirthDate.getMonth() == currentMonth) { // if the current month is the employee's birth month
-            System.out.printf("%s %s's birthday is this month! Adding $100.00 to their payroll.%n", e.getFirstName(), e.getLastName());
+         if (e.earnings() <= 600.0) {
+            System.out.printf("%s %s%n", e.getFirstName(), e.getLastName());
          }
-         System.out.printf("Payroll for %s %s is $%.2f%n", e.getFirstName(), e.getLastName(), 1000.00); // calculate payroll (for demo purposes only)
       }
    }
 }
